@@ -4,11 +4,13 @@ from smartocto.params.notifications import notifications_test_flow
 from smartocto.params.smartocto import smartocto_test_flow
 
 from prefect.deployments import Deployment
+from prefect.server.schemas.schedules import CronSchedule
 
 cms = Deployment.build_from_flow(
     flow=cms_test_flow,
     name="dep-from-python",
-    version=1, 
+    version=1,
+    schedule=(CronSchedule(cron="0 8 * * *", timezone="Africa/Nairobi")),
     work_queue_name="development",
     work_pool_name="default-agent-pool",
 )
