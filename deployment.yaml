@@ -1,0 +1,13 @@
+deployments:
+- name: cms_deployment
+  entrypoint: cms/params/cms.py:cms_test_flow
+  work_pool:
+   name: default-agent-pool
+- name: google_deployment
+  entrypoint: google/params/google.py:google_test_flow
+  work_pool:
+   name: default-agent-pool
+- name: smartocto_deployment
+  entrypoint: smartocto/params/smartocto.py:smartocto_test_flow
+  work_pool:
+   name: default-agent-pool
